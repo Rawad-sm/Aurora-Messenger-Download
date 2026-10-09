@@ -1,15 +1,339 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aurora Messenger — Download</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d0b">
+  <meta name="description" content="Download Aurora Messenger for Windows and access the web version.">
+  <title>Aurora Messenger — Download Center</title>
+
+  <style>
+    :root {
+      --bg: #080d0b;
+      --panel: #101814;
+      --green: #62ffc0;
+      --text: #f2fff8;
+      --muted: #9eafa5;
+      --border: rgba(98,255,192,.16);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 0%, #143b2a 0%, transparent 48%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      max-width: 1120px;
+      margin: auto;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 750;
+      letter-spacing: -.4px;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      color: #07120d;
+      background: var(--green);
+      font-size: 25px;
+      font-weight: 900;
+      box-shadow: 0 0 25px #62ffc033;
+    }
+
+    .web-link {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .hero {
+      max-width: 900px;
+      margin: 70px auto 55px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      color: var(--green);
+      background: #62ffc00b;
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 24px 0 16px;
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -2.5px;
+    }
+
+    h1 span { color: var(--green); }
+
+    .intro {
+      max-width: 600px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .actions {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .button {
+      min-height: 49px;
+      padding: 14px 22px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 750;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .primary {
+      color: #07120d;
+      background: var(--green);
+      box-shadow: 0 8px 30px #62ffc022;
+    }
+
+    .secondary {
+      border: 1px solid var(--border);
+      background: #ffffff06;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px 70px;
+    }
+
+    .section-title {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: linear-gradient(145deg, #132019, #0d130f);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #62ffc015;
+      color: var(--green);
+      font-size: 25px;
+    }
+
+    .card h3 { margin: 19px 0 8px; }
+
+    .card p {
+      min-height: 48px;
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      padding: 6px 9px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .card .button { width: 100%; }
+
+    .note {
+      margin-top: 20px;
+      padding: 17px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 25px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    footer span { color: var(--green); }
+
+    @media (max-width: 650px) {
+      .topbar { padding: 18px; }
+      .brand { font-size: 15px; }
+      .hero { margin: 40px auto 35px; padding: 20px; }
+      h1 { letter-spacing: -1.5px; }
+      .intro { font-size: 15px; }
+      .cards { grid-template-columns: 1fr; }
+      .section { padding-inline: 18px; }
+      .card p { min-height: 0; }
+      .button { width: 100%; }
+    }
+  </style>
 </head>
 
 <body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <div class="logo">A</div>
+      <span>Aurora Messenger</span>
+    </a>
 
-    <h1>Aurora Messenger</h1>
-    <p>Official download center</p>
+    <a class="web-link"
+       href="https://aurora-messenger.onrender.com/"
+       target="_blank" rel="noopener noreferrer">
+      Open Web App ↗
+    </a>
+  </header>
 
+  <main>
+    <section class="hero">
+      <div class="eyebrow">Official Download Center</div>
+
+      <h1>Your conversations.<br>
+        <span>Your Aurora.</span>
+      </h1>
+
+      <p class="intro">
+        Discover Aurora Messenger — a modern messaging experience
+        built for the Xbox 360 community and everyone.
+        Connect on the web or bring Aurora to your Windows desktop.
+      </p>
+
+      <div class="actions">
+        <a class="button primary"
+           href="https://github.com/Rawad-sm/Aurora-Messenger-/releases">
+          ↓ Download for Windows
+        </a>
+
+        <a class="button secondary"
+           href="https://aurora-messenger.onrender.com/"
+           target="_blank" rel="noopener noreferrer">
+          Open Web Version ↗
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Choose your Aurora experience</h2>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon">▣</div>
+          <h3>Windows App</h3>
+          <p>
+            Bring Aurora Messenger to your Windows desktop
+            and stay connected from your computer.
+          </p>
+
+          <div class="details">
+            <span class="tag">Windows</span>
+            <span class="tag">Desktop</span>
+            <span class="tag">Official Releases</span>
+          </div>
+
+          <a class="button primary"
+             href="https://github.com/Rawad-sm/Aurora-Messenger-/releases">
+            View Latest Release →
+          </a>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">◎</div>
+          <h3>Web Messenger</h3>
+          <p>
+            Open Aurora Messenger directly in your browser.
+            No separate desktop download is required.
+          </p>
+
+          <div class="details">
+            <span class="tag">Web Browser</span>
+            <span class="tag">Online</span>
+          </div>
+
+          <a class="button secondary"
+             href="https://aurora-messenger.onrender.com/"
+             target="_blank" rel="noopener noreferrer">
+            Launch Aurora →
+          </a>
+        </article>
+      </div>
+
+      <div class="note">
+        <strong style="color:var(--green)">Download safely</strong><br>
+        Always download the Windows app from the official
+        Aurora Messenger GitHub Releases page. Check the release
+        notes for the latest version and updates.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>◆ Aurora Messenger</span> — Built by Rawad-sm<br>
+    A growing community. More updates ahead.
+  </footer>
 </body>
 </html>
