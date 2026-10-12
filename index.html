@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080d0b">
-  <meta name="description" content="Download Aurora Messenger for Windows and access the web version.">
+  <meta name="description" content="Download Aurora Messenger for Windows and Android, or access the web version.">
   <title>Aurora Messenger — Download Center</title>
 
   <style>
@@ -100,7 +100,7 @@
     h1 span { color: var(--green); }
 
     .intro {
-      max-width: 600px;
+      max-width: 620px;
       margin: auto;
       color: var(--muted);
       font-size: 17px;
@@ -123,6 +123,7 @@
       align-items: center;
       justify-content: center;
       font-weight: 750;
+      text-align: center;
       transition: transform .2s, background .2s;
     }
 
@@ -140,7 +141,7 @@
     }
 
     .section {
-      max-width: 1000px;
+      max-width: 1150px;
       margin: 0 auto;
       padding: 0 24px 70px;
     }
@@ -152,7 +153,7 @@
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
@@ -161,6 +162,8 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       background: linear-gradient(145deg, #132019, #0d130f);
+      display: flex;
+      flex-direction: column;
     }
 
     .card-icon {
@@ -177,7 +180,7 @@
     .card h3 { margin: 19px 0 8px; }
 
     .card p {
-      min-height: 48px;
+      flex: 1;
       margin: 0 0 22px;
       color: var(--muted);
       line-height: 1.7;
@@ -222,6 +225,10 @@
 
     footer span { color: var(--green); }
 
+    @media (max-width: 900px) {
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     @media (max-width: 650px) {
       .topbar { padding: 18px; }
       .brand { font-size: 15px; }
@@ -230,7 +237,6 @@
       .intro { font-size: 15px; }
       .cards { grid-template-columns: 1fr; }
       .section { padding-inline: 18px; }
-      .card p { min-height: 0; }
       .button { width: 100%; }
     }
   </style>
@@ -254,21 +260,26 @@
     <section class="hero">
       <div class="eyebrow">Official Download Center</div>
 
-      <h1>Your conversations.<br>
+      <h1>
+        Your conversations.<br>
         <span>Your Aurora.</span>
       </h1>
 
       <p class="intro">
         Discover Aurora Messenger — a modern messaging experience
         built for the Xbox 360 community and everyone.
-        Connect on the web or bring Aurora to your Windows desktop.
+        Connect on the web, Windows, or Android.
       </p>
 
       <div class="actions">
         <a class="button primary"
-           href="https://github.com/Rawad-sm/Aurora-Messenger-web-and-app-for-windows/releases/download/v1.0.0/Aurora-Messenger-Win-x64.rar"
-           download>
+           href="https://github.com/Rawad-sm/Aurora-Messenger-web-and-app-for-windows/releases/download/v1.0.0/Aurora-Messenger-Win-x64.rar">
           ↓ Download for Windows
+        </a>
+
+        <a class="button primary"
+           href="https://github.com/Rawad-sm/Aurora-Messenger-web-and-app-for-windows-and-Android/releases/download/v1.0.0/aurora_messenger.apk">
+          ↓ Download for Android
         </a>
 
         <a class="button secondary"
@@ -304,11 +315,32 @@
         </article>
 
         <article class="card">
+          <div class="card-icon">📱</div>
+          <h3>Android App</h3>
+          <p>
+            Take Aurora Messenger with you on your Android phone.
+            Download the APK and install it on a compatible device.
+          </p>
+
+          <div class="details">
+            <span class="tag">Android</span>
+            <span class="tag">APK</span>
+            <span class="tag">Version 1.0.0</span>
+            <span class="tag">9.7 MB</span>
+          </div>
+
+          <a class="button primary"
+             href="https://github.com/Rawad-sm/Aurora-Messenger-web-and-app-for-windows-and-Android/releases/download/v1.0.0/aurora_messenger.apk">
+            ↓ Download Android APK
+          </a>
+        </article>
+
+        <article class="card">
           <div class="card-icon">◎</div>
           <h3>Web Messenger</h3>
           <p>
             Open Aurora Messenger directly in your browser.
-            No separate desktop download is required.
+            No separate app download is required.
           </p>
 
           <div class="details">
@@ -326,9 +358,10 @@
 
       <div class="note">
         <strong style="color:var(--green)">Download safely</strong><br>
-        Always download the Windows app from the official
-        Aurora Messenger GitHub Releases page. Check the release
-        notes for the latest version and updates.
+        Download Aurora Messenger from the official links above.
+        Android may ask you to approve installing apps from your
+        browser. Only install APK files from sources you trust.
+        Check GitHub Releases for available versions and updates.
       </div>
     </section>
   </main>
