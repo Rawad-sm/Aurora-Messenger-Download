@@ -365,24 +365,88 @@
       </div>
     </section>
 
-<div class="qr-card">
-  <h2>Scan & Connect</h2>
+<style>
+  .qr-section {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 24px 65px;
+  }
 
-  <p>
-    Scan this QR code with your smartphone
-    to discover Aurora Messenger.
-  </p>
+  .qr-card {
+    max-width: 380px;
+    margin: auto;
+    padding: 22px;
+    text-align: center;
+    background: linear-gradient(145deg, #132019, #0d130f);
+    border: 1px solid rgba(98,255,192,.16);
+    border-radius: 20px;
+    box-shadow: 0 10px 35px #00000025;
+  }
 
-  <img
-    src="https://github.com/user-attachments/assets/d494c22c-106a-459e-ae78-2cf3c9ca5985"
-    alt="Official Aurora Messenger QR Code"
-    class="qr-image"
-  >
+  .qr-card h2 {
+    margin: 0 0 10px;
+    color: #62ffc0;
+    font-size: 21px;
+  }
 
-  <div class="qr-label">
-    AURORA MESSENGER • SCAN ME
+  .qr-card p {
+    margin: 0;
+    color: #9eafa5;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .qr-image {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 18px auto;
+    border-radius: 10px;
+  }
+
+  .qr-label {
+    color: #62ffc0;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+  }
+
+  @media(max-width:650px) {
+    .qr-section {
+      padding-inline: 18px;
+    }
+  }
+</style>
+
+<section class="qr-section">
+  <div class="qr-card">
+
+    <h2>Scan & Connect</h2>
+
+    <p>
+      Scan our official QR code with your
+      smartphone to access Aurora Messenger.
+    </p>
+
+    <a
+      href="https://qrco.de/bh5Yci"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="https://github.com/user-attachments/assets/d494c22c-106a-459e-ae78-2cf3c9ca5985"
+        alt="Aurora Messenger Official QR Code"
+        class="qr-image"
+      >
+    </a>
+
+    <div class="qr-label">
+      AURORA MESSENGER • SCAN ME
+    </div>
+
   </div>
-</div>
+</section>
     
   </main>
 
