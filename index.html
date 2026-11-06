@@ -1,25 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080d0b">
-  <meta name="description" content="Download Aurora Messenger for Windows and Android, or access the web version.">
-  <title>Aurora Messenger — Download Center</title>
+
+  <title>Aurora Messenger — Official Download Center</title>
+
+  <meta name="description" content="Download Aurora Messenger for Windows and Android, or use the web app. Explore the official Aurora Messenger download center by Rawad-sm.">
+  <meta name="author" content="Rawad-sm">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://rawad-sm.github.io/Aurora-Messenger-Download/">
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Aurora Messenger — Official Download Center">
+  <meta property="og:description" content="Connect with Aurora Messenger on Windows, Android, or the web.">
+  <meta property="og:url" content="https://rawad-sm.github.io/Aurora-Messenger-Download/">
+  <meta property="og:site_name" content="Aurora Messenger">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Aurora Messenger">
+  <meta name="twitter:description" content="Download Aurora Messenger for Windows and Android, or open the web app.">
 
   <style>
     :root {
       --bg: #080d0b;
       --panel: #101814;
+      --panel-light: #14221a;
       --green: #62ffc0;
       --text: #f2fff8;
       --muted: #9eafa5;
       --border: rgba(98,255,192,.16);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -31,7 +52,29 @@
       font-family: "Segoe UI", Arial, sans-serif;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 12px;
+      z-index: 100;
+      padding: 12px;
+      color: #07120d;
+      background: var(--green);
+      border-radius: 8px;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
 
     .topbar {
       max-width: 1120px;
@@ -68,7 +111,12 @@
     .web-link {
       color: var(--green);
       font-size: 14px;
-      font-weight: 650;
+      font-weight: 700;
+    }
+
+    .web-link:hover,
+    footer a:hover {
+      text-decoration: underline;
     }
 
     .hero {
@@ -97,10 +145,12 @@
       letter-spacing: -2.5px;
     }
 
-    h1 span { color: var(--green); }
+    h1 span {
+      color: var(--green);
+    }
 
     .intro {
-      max-width: 620px;
+      max-width: 650px;
       margin: auto;
       color: var(--muted);
       font-size: 17px;
@@ -118,16 +168,28 @@
     .button {
       min-height: 49px;
       padding: 14px 22px;
+      border: 1px solid transparent;
       border-radius: 12px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
       font-weight: 750;
       text-align: center;
-      transition: transform .2s, background .2s;
+      cursor: pointer;
+      transition: transform .2s, background .2s, border-color .2s;
     }
 
-    .button:hover { transform: translateY(-2px); }
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button:focus-visible,
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 4px;
+    }
 
     .primary {
       color: #07120d;
@@ -135,15 +197,24 @@
       box-shadow: 0 8px 30px #62ffc022;
     }
 
+    .primary:hover {
+      background: #8affd0;
+    }
+
     .secondary {
-      border: 1px solid var(--border);
+      border-color: var(--border);
       background: #ffffff06;
+    }
+
+    .secondary:hover {
+      border-color: var(--green);
+      background: #62ffc010;
     }
 
     .section {
       max-width: 1150px;
       margin: 0 auto;
-      padding: 0 24px 70px;
+      padding: 0 24px 65px;
     }
 
     .section-title {
@@ -164,6 +235,12 @@
       background: linear-gradient(145deg, #132019, #0d130f);
       display: flex;
       flex-direction: column;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #62ffc077;
     }
 
     .card-icon {
@@ -174,10 +251,12 @@
       border-radius: 14px;
       background: #62ffc015;
       color: var(--green);
-      font-size: 25px;
+      font-size: 24px;
     }
 
-    .card h3 { margin: 19px 0 8px; }
+    .card h3 {
+      margin: 19px 0 8px;
+    }
 
     .card p {
       flex: 1;
@@ -202,7 +281,9 @@
       font-size: 11px;
     }
 
-    .card .button { width: 100%; }
+    .card .button {
+      width: 100%;
+    }
 
     .note {
       margin-top: 20px;
@@ -214,6 +295,96 @@
       line-height: 1.7;
     }
 
+    .note strong {
+      color: var(--green);
+    }
+
+    .qr-section {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 0 24px 65px;
+    }
+
+    .qr-card {
+      max-width: 390px;
+      margin: auto;
+      padding: 25px;
+      text-align: center;
+      background: linear-gradient(145deg, #132019, #0d130f);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 10px 35px #00000025;
+    }
+
+    .qr-card h2 {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-size: 21px;
+    }
+
+    .qr-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .qr-image {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      display: block;
+      margin: 18px auto;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .qr-label {
+      color: var(--green);
+      font-size: 10px;
+      letter-spacing: 1.2px;
+      font-weight: 700;
+    }
+
+    .faq {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 24px 65px;
+    }
+
+    .faq-item {
+      margin-bottom: 12px;
+      padding: 17px 19px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: #101814;
+    }
+
+    .faq-item summary {
+      color: var(--text);
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .faq-item p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .share-area {
+      text-align: center;
+      padding: 0 20px 55px;
+    }
+
+    #copy-status {
+      min-height: 22px;
+      margin-top: 10px;
+      color: var(--green);
+      font-size: 13px;
+    }
+
     footer {
       padding: 25px;
       border-top: 1px solid var(--border);
@@ -223,41 +394,93 @@
       line-height: 2;
     }
 
-    footer span { color: var(--green); }
+    footer span {
+      color: var(--green);
+    }
 
     @media (max-width: 900px) {
-      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 650px) {
-      .topbar { padding: 18px; }
-      .brand { font-size: 15px; }
-      .hero { margin: 40px auto 35px; padding: 20px; }
-      h1 { letter-spacing: -1.5px; }
-      .intro { font-size: 15px; }
-      .cards { grid-template-columns: 1fr; }
-      .section { padding-inline: 18px; }
-      .button { width: 100%; }
+      .topbar {
+        padding: 18px;
+      }
+
+      .brand {
+        font-size: 15px;
+      }
+
+      .hero {
+        margin: 40px auto 35px;
+        padding: 20px;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .intro {
+        font-size: 15px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section,
+      .qr-section,
+      .faq {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header class="topbar">
-    <a class="brand" href="#">
-      <div class="logo">A</div>
+    <a class="brand" href="#top" aria-label="Aurora Messenger home">
+      <div class="logo" aria-hidden="true">A</div>
       <span>Aurora Messenger</span>
     </a>
 
     <a class="web-link"
        href="https://aurora-messenger.onrender.com/"
-       target="_blank" rel="noopener noreferrer">
+       target="_blank"
+       rel="noopener noreferrer">
       Open Web App ↗
     </a>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="main-content">
+
+    <section class="hero" id="top">
       <div class="eyebrow">Official Download Center</div>
 
       <h1>
@@ -266,7 +489,7 @@
       </h1>
 
       <p class="intro">
-        Discover Aurora Messenger — a modern messaging experience
+        Discover Aurora Messenger, a modern messaging experience
         built for the Xbox 360 community and everyone.
         Connect on the web, Windows, or Android.
       </p>
@@ -284,19 +507,23 @@
 
         <a class="button secondary"
            href="https://aurora-messenger.onrender.com/"
-           target="_blank" rel="noopener noreferrer">
+           target="_blank"
+           rel="noopener noreferrer">
           Open Web Version ↗
         </a>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="downloads">
       <h2 class="section-title">Choose your Aurora experience</h2>
 
       <div class="cards">
+
         <article class="card">
-          <div class="card-icon">▣</div>
+          <div class="card-icon" aria-hidden="true">▣</div>
+
           <h3>Windows App</h3>
+
           <p>
             Bring Aurora Messenger to your Windows desktop
             and stay connected from your computer.
@@ -305,39 +532,42 @@
           <div class="details">
             <span class="tag">Windows</span>
             <span class="tag">Desktop</span>
-            <span class="tag">Official Releases</span>
+            <span class="tag">GitHub Releases</span>
           </div>
 
           <a class="button primary"
-             href="https://github.com/Rawad-sm/Aurora-Messenger-/releases">
-            View Latest Release →
+             href="https://github.com/Rawad-sm/Aurora-Messenger-web-and-app-for-windows-and-Android/releases">
+            View Windows Releases →
           </a>
         </article>
 
         <article class="card">
-          <div class="card-icon">📱</div>
+          <div class="card-icon" aria-hidden="true">▣</div>
+
           <h3>Android App</h3>
+
           <p>
             Take Aurora Messenger with you on your Android phone.
-            Download the APK and install it on a compatible device.
+            Download the APK from the official release.
           </p>
 
           <div class="details">
             <span class="tag">Android</span>
             <span class="tag">APK</span>
-            <span class="tag">Version 1.0.0</span>
-            <span class="tag">9.7 MB</span>
+            <span class="tag">GitHub Release</span>
           </div>
 
           <a class="button primary"
-             href="https://github.com/Rawad-sm/Aurora-Messenger-web-and-app-for-windows-and-Android/releases/download/v1.0.0/aurora_messenger.apk">
-            ↓ Download Android APK
+             href="https://github.com/Rawad-sm/Aurora-Messenger-web-and-app-for-windows-and-Android/releases">
+            View Android Releases →
           </a>
         </article>
 
         <article class="card">
-          <div class="card-icon">◎</div>
+          <div class="card-icon" aria-hidden="true">◎</div>
+
           <h3>Web Messenger</h3>
+
           <p>
             Open Aurora Messenger directly in your browser.
             No separate app download is required.
@@ -350,110 +580,139 @@
 
           <a class="button secondary"
              href="https://aurora-messenger.onrender.com/"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer">
             Launch Aurora →
           </a>
         </article>
+
       </div>
 
       <div class="note">
-        <strong style="color:var(--green)">Download safely</strong><br>
-        Download Aurora Messenger from the official links above.
-        Android may ask you to approve installing apps from your
-        browser. Only install APK files from sources you trust.
-        Check GitHub Releases for available versions and updates.
+        <strong>Download safely</strong><br>
+        Download Aurora Messenger only from the official links.
+        Check the GitHub Releases page for the available versions
+        and update information.
       </div>
     </section>
 
-<style>
-  .qr-section {
-    max-width: 1150px;
-    margin: 0 auto;
-    padding: 0 24px 65px;
-  }
+    <section class="qr-section" aria-labelledby="qr-title">
+      <div class="qr-card">
 
-  .qr-card {
-    max-width: 380px;
-    margin: auto;
-    padding: 22px;
-    text-align: center;
-    background: linear-gradient(145deg, #132019, #0d130f);
-    border: 1px solid rgba(98,255,192,.16);
-    border-radius: 20px;
-    box-shadow: 0 10px 35px #00000025;
-  }
+        <h2 id="qr-title">Scan & Connect</h2>
 
-  .qr-card h2 {
-    margin: 0 0 10px;
-    color: #62ffc0;
-    font-size: 21px;
-  }
+        <p>
+          Scan our official QR code with your smartphone
+          to access Aurora Messenger.
+        </p>
 
-  .qr-card p {
-    margin: 0;
-    color: #9eafa5;
-    font-size: 13px;
-    line-height: 1.7;
-  }
+        <a href="https://qrco.de/bh5Yci"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Open Aurora Messenger QR link">
 
-  .qr-image {
-    width: 180px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: 18px auto;
-    border-radius: 10px;
-  }
+          <img
+            src="https://github.com/user-attachments/assets/b13b81cc-66d4-4191-9813-f5ad927b83c5"
+            alt="Aurora Messenger official QR code"
+            class="qr-image"
+            loading="lazy"
+          >
+        </a>
 
-  .qr-label {
-    color: #62ffc0;
-    font-size: 10px;
-    letter-spacing: 1.2px;
-    font-weight: 700;
-  }
+        <div class="qr-label">
+          AURORA MESSENGER • SCAN ME
+        </div>
 
-  @media(max-width:650px) {
-    .qr-section {
-      padding-inline: 18px;
-    }
-  }
-</style>
+      </div>
+    </section>
 
+    <section class="faq" id="faq">
+      <h2 class="section-title">Frequently Asked Questions</h2>
 
-<section class="qr-section">
-  <div class="qr-card">
+      <details class="faq-item">
+        <summary>What is Aurora Messenger?</summary>
+        <p>
+          Aurora Messenger is a messaging project created by Rawad-sm.
+          It provides a web experience and downloadable versions.
+        </p>
+      </details>
 
-    <h2>Scan & Connect</h2>
+      <details class="faq-item">
+        <summary>Can I use Aurora without downloading an app?</summary>
+        <p>
+          Yes. Open the web version directly in your browser.
+        </p>
+      </details>
 
-    <p>
-      Scan our official QR code with your
-      smartphone to access Aurora Messenger.
-    </p>
+      <details class="faq-item">
+        <summary>Where can I find the latest downloads?</summary>
+        <p>
+          Visit the official GitHub Releases page to see the
+          available Windows and Android versions.
+        </p>
+      </details>
 
-    <a
-      href="https://qrco.de/bh5Yci"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img
-        src="https://github.com/user-attachments/assets/b13b81cc-66d4-4191-9813-f5ad927b83c5"
-        alt="Aurora Messenger Official QR Code"
-        class="qr-image"
-      >
-    </a>
+      <details class="faq-item">
+        <summary>Is Aurora Messenger free?</summary>
+        <p>
+          Check the official release and project pages for
+          the current availability and terms.
+        </p>
+      </details>
+    </section>
 
-    <div class="qr-label">
-      AURORA MESSENGER • SCAN ME
-    </div>
+    <section class="share-area">
+      <button class="button secondary"
+              type="button"
+              id="copy-link">
+        Copy Download Center Link
+      </button>
 
-  </div>
-</section>
-    
+      <p id="copy-status" role="status" aria-live="polite"></p>
+    </section>
+
   </main>
 
   <footer>
     <span>◆ Aurora Messenger</span> — Built by Rawad-sm<br>
-    A growing community. More updates ahead.
+    A growing community. More updates ahead.<br>
+    <a href="https://github.com/Rawad-sm"
+       target="_blank"
+       rel="noopener noreferrer">
+      GitHub
+    </a>
+    ·
+    <a href="https://aurora-messenger.onrender.com/"
+       target="_blank"
+       rel="noopener noreferrer">
+      Web App
+    </a>
+    <br>
+    © <span id="year"></span> Aurora Messenger
   </footer>
+
+  <script>
+    // Automatically update the footer year.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Copy the official download center URL.
+    const copyButton = document.getElementById("copy-link");
+    const copyStatus = document.getElementById("copy-status");
+
+    copyButton.addEventListener("click", async () => {
+      const siteURL =
+        "https://rawad-sm.github.io/Aurora-Messenger-Download/";
+
+      try {
+        await navigator.clipboard.writeText(siteURL);
+        copyStatus.textContent = "Link copied successfully!";
+      } catch (error) {
+        copyStatus.textContent =
+          "Copy is unavailable in this browser. Copy the page URL manually.";
+      }
+    });
+  </script>
+
 </body>
 </html>
